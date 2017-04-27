@@ -1,0 +1,11 @@
+<div class="clearfix col-md-6">
+ <lu>
+        <comp-card 
+           class="card clearfix" 
+           ng-repeat="item in compDeck.deck track by $index"  
+           item-card="item">
+           <img class="picture" ng-src="app/resources/{{compDeck.deck.picture}}" />
+   {{compDeck.deck.id}}
+        </comp-card>
+    </lu>
+</div>
