@@ -11,10 +11,12 @@
 
 function controladorCompPlay ($state){
   var vm = this;
- vm.goToPlay=function(){
-    $state.go('play');
+ vm.goToRePlay=function(){
+    $state.go('replay');
     console.log('pulso Play Again')
   }
-}
+
+
+};
 
 })(angular)

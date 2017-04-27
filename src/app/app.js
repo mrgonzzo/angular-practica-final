@@ -14,28 +14,34 @@
     };
     var detail = {
       name: 'detail',
-    //  url: '/detail',
-    url: '/detail/:idAnimal',//idAnimal es un parametro
-    params:{
-      idAnimal:{squash:true,value: null}
-    },
-     template: '<comp-detailview></comp-detailview>'   
+      //  url: '/detail',
+      url: '/detail/:idAnimal',//idAnimal es un parametro
+      params: {
+        idAnimal: { squash: true, value: null }
+      },
+      template: '<comp-detailview></comp-detailview>'
     };
-    var about ={
-      name:'aboutus',
-      url:'/aboutus',
-      template:'<comp-aboutus></comp-aboutus>'
+    var about = {
+      name: 'aboutus',
+      url: '/aboutus',
+      template: '<comp-aboutus></comp-aboutus>'
     };
-    var play ={
-      name:'play',
-      url:'/play',
-      template:'<comp-play></comp-play>'
+    var play = {
+      name: 'play',
+      url: '/play',
+      template: '<comp-play></comp-play>'
+    };
+    var replay = {
+      name: 'replay',
+      url: '/replay',
+      template: '<comp-play></comp-play>'
 
     };
     $stateProvider.state(main);
     $stateProvider.state(detail);
     $stateProvider.state(about);
     $stateProvider.state(play);
+    $stateProvider.state(replay);
     $urlRouterProvider.otherwise('/main');
   }
 
