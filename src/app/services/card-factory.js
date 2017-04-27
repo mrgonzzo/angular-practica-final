@@ -4,28 +4,25 @@
         var module = {};
         var self = module;
         var cardarray = [
-            { id: 1, picture: "v1.jpg", type: ' ' },
-            { id: 2, picture: "v2.jpg", type: ' ' },
-            { id: 3, picture: "v3.jpg", type: ' ' },
-            { id: 4, picture: "v4.jpg", type: ' ' },
-            { id: 5, picture: "v5.jpg", type: ' ' },
-            { id: 6, picture: "v6.jpg", type: ' ' },
-            { id: 7, picture: "v7.jpg", type: ' ' },
-            { id: 8, picture: "v8.jpg", type: ' ' },
-            { id: 9, picture: "v9.jpg", type: ' ' },
-            { id: 10, picture: "v10.jpg", type: ' ' },
+            { id: 1, picture: "v1.jpg", stat: 'faced' },
+            { id: 2, picture: "v2.jpg", stat: 'faced' },
+            { id: 3, picture: "v3.jpg", stat: 'faced' },
+            { id: 4, picture: "v4.jpg", stat: 'faced' },
+            { id: 5, picture: "v5.jpg", stat: 'faced' },
+            { id: 6, picture: "v6.jpg", stat: 'faced' },
+            { id: 7, picture: "v7.jpg", stat: 'faced' },
+            { id: 8, picture: "v8.jpg", stat: 'faced' },
+            { id: 9, picture: "v9.jpg", stat: 'faced' },
+            { id: 10, picture: "v10.jpg", stat: 'faced' },
         ];
-
+ cardarray.push.apply(cardarray, cardarray);
         module.getDeck = function () {
-           
-            return cardarray;
+           return cardarray;
         };
 
         module.getcardById = function (_idcard_) {
             var card = '';
             var idcard = parseInt(_idcard_)
-
-
             //es interesante usar firewalls
             if (!idcard) {
                 return false;

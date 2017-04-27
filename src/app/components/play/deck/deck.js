@@ -10,12 +10,29 @@
     });
     function controladorCompDeck($state, cardFactory) {
         var vm = this;
-        vm.$onInit = function () {
-            vm.deck = cardFactory.getDeck();
-            for(var i=0;i<vm.deck.length;i++)
-            console.log("deck: ", vm.deck[i].id, vm.deck[i].picture )
-            vm.clase = 'formvirgin';
-        };      
 
-    }
+        // -> Fisher–Yates shuffle algorithm
+        var shuffleArray = function (array) {
+            var m = array.length, t, i;
+
+            // While there remain elements to shuffle
+            while (m) {
+                // Pick a remaining element…
+                i = Math.floor(Math.random() * m--);
+
+                // And swap it with the current element.
+                t = array[m];
+                array[m] = array[i];
+                array[i] = t;
+            }
+
+            return array;
+        };
+
+       
+        vm.$onInit = function () {
+            vm.counter = 0;
+            vm.deck = shuffleArray(cardFactory.getDeck());
+        };
+    };
 })(angular)

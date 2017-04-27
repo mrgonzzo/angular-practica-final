@@ -1,4 +1,4 @@
-
+﻿
 /* Importamos gulp */
 const gulp = require('gulp');
 
@@ -25,6 +25,7 @@ gulp.task('browserSync', function() {
       https: false/*,
       middleware: [ apiFallback() ] */
     },
+	browser: 'chrome'
   });
 
   gulp.watch("src/**/*.js").on("change", reload);
