@@ -12,15 +12,7 @@
       url: '/main',
       template: '<comp-mainview></comp-mainview>'
     };
-    var detail = {
-      name: 'detail',
-      //  url: '/detail',
-      url: '/detail/:idAnimal',//idAnimal es un parametro
-      params: {
-        idAnimal: { squash: true, value: null }
-      },
-      template: '<comp-detailview></comp-detailview>'
-    };
+    
     var about = {
       name: 'aboutus',
       url: '/aboutus',
@@ -31,17 +23,10 @@
       url: '/play',
       template: '<comp-play></comp-play>'
     };
-    var replay = {
-      name: 'replay',
-      url: '/replay',
-      template: '<comp-play></comp-play>'
-
-    };
+    
     $stateProvider.state(main);
-    $stateProvider.state(detail);
     $stateProvider.state(about);
     $stateProvider.state(play);
-    $stateProvider.state(replay);
     $urlRouterProvider.otherwise('/main');
   }
 

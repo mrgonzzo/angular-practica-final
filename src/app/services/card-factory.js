@@ -15,12 +15,21 @@
             { id: 9, picture: "v9.jpg", stat: 'faced' },
             { id: 10, picture: "v10.jpg", stat: 'faced' },
         ];
+
  cardarray.push.apply(cardarray, cardarray);
+
         module.getDeck = function () {
            return cardarray;
         };
 
-        module.getcardById = function (_idcard_) {
+        
+
+        return module;
+    };
+})(angular);
+
+
+/*module.getcardById = function (_idcard_) {
             var card = '';
             var idcard = parseInt(_idcard_)
             //es interesante usar firewalls
@@ -35,8 +44,4 @@
                 }
             }
             return card;
-        };
-
-        return module;
-    };
-})(angular);
+        };*/

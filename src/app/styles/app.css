@@ -42,6 +42,9 @@
     margin-left: 10px;
     margin-bottom: 7px;
 }
-.face{
+.face .backed{
     visibility: visible;
+}
+.solve{
+    visibility: hidden;
 }
