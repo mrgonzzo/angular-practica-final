@@ -31,9 +31,9 @@
 
         vm.flop = function (deck) {
             var i = 0;
-            
-            for (i; i < deck.length; i++){
-                deck[i].picture = "back.jpg";                  
+
+            for (i; i < deck.length; i++) {
+                deck[i].picture = "back.jpg";
             }
             return deck;
         };
@@ -41,22 +41,11 @@
         vm.$onInit = function () {
             vm.counter = 0;
             vm.deck = shuffleArray(cardFactory.getDeck());
-
-console.log(vm.deck);
-
-$timeout(function() {
- vm.deck = vm.flop(vm.deck);
-}, 10000);
-           
-          
-
-        
-        console.log('init', vm.deck[0].picture, vm.deck[0].stat);
-    };
-     
-
-
-}
+            $timeout(function () {
+                vm.deck = vm.flop(vm.deck);
+            }, 10000);
+        };
+    }
 })(angular)
 
 

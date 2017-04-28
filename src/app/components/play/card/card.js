@@ -13,8 +13,11 @@
     });
     function controladorCompCard($state, cardFactory) {
         var vm = this;
-        
-        
+       vm.actionPlay=function(itemCard){
+         
+            itemCard.picture='v'+itemCard.id+'.jpg';
+             console.log('actionPlay',itemCard.id);
+        }
         
     }
 

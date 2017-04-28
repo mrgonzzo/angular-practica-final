@@ -1,6 +1,6 @@
 <div class="clearfix">
    <lu>
-        <comp-card class="card" ng-repeat="item in compDeck.deck track by $index" item-card="item">
+        <comp-card ng-click="compDeck.actionPlay()" class="card" ng-repeat="item in compDeck.deck track by $index" item-card="item">
             <img class="picture" ng-src="app/resources/{{item.picture}}" />
         </comp-card>
     </lu>
