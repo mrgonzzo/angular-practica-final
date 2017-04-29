@@ -11,39 +11,23 @@
     function controladorCompDeck($state, $timeout, cardFactory) {
         var vm = this;
 
-        // -> Fisher–Yates shuffle algorithm
-        var shuffleArray = function (array) {
-            var m = array.length, t, i;
-
-            // While there remain elements to shuffle
-            while (m) {
-                // Pick a remaining element…
-                i = Math.floor(Math.random() * m--);
-
-                // And swap it with the current element.
-                t = array[m];
-                array[m] = array[i];
-                array[i] = t;
-            }
-
-            return array;
-        };
 
         vm.flop = function (deck) {
             var i = 0;
 
             for (i; i < deck.length; i++) {
                 deck[i].picture = "back.jpg";
+                deck[i].stat = 'backed';
             }
             return deck;
         };
 
         vm.$onInit = function () {
             vm.counter = 0;
-            vm.deck = shuffleArray(cardFactory.getDeck());
+            vm.deck = angular.copy(cardFactory.getDeck());
             $timeout(function () {
                 vm.deck = vm.flop(vm.deck);
-            }, 10000);
+            }, 1000);
         };
     }
 })(angular)

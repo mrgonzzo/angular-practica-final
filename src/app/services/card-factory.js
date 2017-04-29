@@ -15,24 +15,48 @@
             { id: 9, part: 'a', picture: "v9.jpg", stat: 'faced' },
             { id: 10, part: 'a', picture: "v10.jpg", stat: 'faced' },
         ];
-        var linkcard = function (list) {
-            var i = 0;
-            while (list.length) {
-                list[i].part = 'b';
-                i++;
+        var turn = [];
+        // -> Fisher–Yates shuffle algorithm
+        var shuffleArray = function (deckarray) {
+            var m = deckarray.length, t, i;
+
+            // While there remain elements to shuffle
+            while (m) {
+                // Pick a remaining element…
+                i = Math.floor(Math.random() * m--);
+
+                // And swap it with the current element.
+                t = deckarray[m];
+                deckarray[m] = deckarray[i];
+                deckarray[i] = t;
             }
-            return list
+
+            return deckarray;
         };
 
-        pararray =linkcard(cardarray);
-        cardarray.push.apply(cardarray, pararray);
+        var linkcard = function (cardarray) {
 
+            var barray = angular.copy(cardarray);
+            for (var i = 0; i < barray.length; i++) {
+                barray[i].part = 'b';
+            }
+            /*while (barray.length) {
+                console.log(barray.length,i,barray[i].part);
+                console.log('*************************************************************');
+                barray[i].part = 'b';
+                i = i+1;
+            }*/
+            return barray
+        };
+        var pararray = linkcard(cardarray);
+        cardarray.push.apply(cardarray, pararray);
         module.getDeck = function () {
+            shuffleArray(cardarray);
             return cardarray;
         };
-
-
-
+        module.getTurn = function () {
+            return turn;
+        };
         return module;
     };
 })(angular);
