@@ -1,1 +1,31 @@
-<h1>registro</h1>
+<div class="form clearfix">
+    <!--      <p> Name: <input type="text" ng-model="compUsfile.name" ng-class="compUsfile.clase ? 'class-if-true' : 'class-if-false'"></p> -->
+    <h1>registro</h1>
+
+    <p> Name: <input type="text" ng-model="compUsfile.name" ng-class="compUsfile.clase"></p>{{compUsfile.name}}
+    <p> E-Mail<input type="text" ng-model="compUsfile.email" ng-class="compUsfile.clase"></p>
+
+    <label for="avatar">Avatar</label>
+    <div class="radavatar clearfix">
+
+        <div class="avatarcss">
+            <input name="avatar" type="radio" ng-model="user.avatar" value="1" /> THE BAT-MAN
+            <p>
+                <img src="app/resources/Bat.jpg">
+            </p>
+        </div>
+        <div class="avatarcss mar-l-avat">
+            <input name="avatar" type="radio" ng-model="user.avatar" value="2" /> SON GOKU
+            <p>
+                <img src="app/resources/goku.jpg">
+            </p>
+        </div>
+        <div class="avatarcss mar-l-avat">
+            <input name="avatar" type="radio" ng-model="user.avatar" value="3" /> T-1000
+            <p>
+                <img src="app/resources/Terminator.jpg">
+            </p>
+        </div>
+    </div>
+    <button ng-click="compUsfile.addForm()">Añadir</button>
+</div>

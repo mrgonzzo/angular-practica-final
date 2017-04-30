@@ -67,3 +67,20 @@
 .ko{
     background-color: red;
    }
+.form{
+    text-align: center;
+}
+.avatarcss{
+    float:left;
+    text-align: center;
+    border: 1px;
+    border-style:solid;
+}
+.radavatar{
+    margin-left: 28%; 
+    margin-bottom: 10px;
+}
+.mar-l-avat{
+    margin-left: 50px;
+    text-align: center;
+}
