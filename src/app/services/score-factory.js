@@ -7,7 +7,7 @@
         var ok = 0;
         var score = [ok,ko];
         module.getScore = function () {
-            console.log(score);
+                 console.log( 'scoreFactory',score);
             return score;
         };
         return module;

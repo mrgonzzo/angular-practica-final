@@ -15,7 +15,8 @@
         var vm = this;
         var crdturn = cardFactory.getTurn();
         var scoreCard = scoreFactory.getScore();
-        //var clickEnabled = true;
+             console.log( 'compCard',scoreCard);
+        vm.clickEnabled = true;
         vm.flopItemCard = function (item) {
             item.picture = 'back.jpg';
             item.stat = 'backed';
@@ -29,12 +30,14 @@
             itemCard = vm.flopItemCard(turn[0]);
             itemCard = vm.flopItemCard(turn[1]);
             scoreCard[1] = scoreCard[1] + 1;
+            console.log( 'compCard ko flop',scoreCard);
             turn.length = 0;
         }
         vm.solveDuo = function (turn) {
             itemCard = vm.solveItemCard(turn[0]);
             itemCard = vm.solveItemCard(turn[1]);
             scoreCard[0] = scoreCard[0] + 1;
+            console.log( 'compCard ok solveDuo',scoreCard);
             turn.length = 0;
         }
         vm.evaluateTurn = function (turn) {
@@ -55,9 +58,10 @@
                 crdturn.push(itemCard);
                 if (crdturn.length === 2) {
 
-                    /* $timeout(function () {
+                     $timeout(function () {
                          vm.clickEnabled = false;
-                     }, 3000);*/
+                     }, 3000);
+
                     vm.evaluateTurn(crdturn);
                 }
             }
