@@ -48,3 +48,9 @@
 .solve{
     visibility: hidden;
 }
+.counter{
+    margin: 3px 3px 3px 3px;
+    border: 2px;
+    border-style: ridge;
+    
+}

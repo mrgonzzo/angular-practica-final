@@ -40,12 +40,6 @@
             for (var i = 0; i < barray.length; i++) {
                 barray[i].part = 'b';
             }
-            /*while (barray.length) {
-                console.log(barray.length,i,barray[i].part);
-                console.log('*************************************************************');
-                barray[i].part = 'b';
-                i = i+1;
-            }*/
             return barray
         };
         var pararray = linkcard(cardarray);
@@ -60,21 +54,3 @@
         return module;
     };
 })(angular);
-
-
-/*module.getcardById = function (_idcard_) {
-            var card = '';
-            var idcard = parseInt(_idcard_)
-            //es interesante usar firewalls
-            if (!idcard) {
-                return false;
-            } //end firewall
-            //con un while es mas rapido (no importa la posicion) while (len--)
-            for (var i = 0; i < cardarray.length; i++) {
-                //lo optimo es usar los tres iguales para comprobar tambien el tipo además del valor (más eficiente)
-                if (idcard === cardarray[i].id) {
-                    card = cardarray[i];
-                }
-            }
-            return card;
-        };*/
