@@ -4,7 +4,7 @@
         // otra opción es poner aquí directamente el html asignándoselo a template:
         templateUrl: 'app/components/play/card/card.html',
         // en controller definimos la función que escribimos abajo
-        controller: ['$state', 'cardFactory', controladorCompCard],
+        controller: ['$timeout', '$state', 'cardFactory', controladorCompCard],
         // declaramos un alias para no tener que usar $ctrl.
         controllerAs: 'compCard',
         bindings: {
@@ -12,7 +12,7 @@
         }
     });
 
-    function controladorCompCard($state, cardFactory) {
+    function controladorCompCard($timeout, $state, cardFactory) {
         var vm = this;
         var crdturn = cardFactory.getTurn();
         vm.flopItemCard = function (item) {
@@ -20,23 +20,31 @@
             item.stat = 'backed';
             return item;
         };
+        vm.SolveItemCard = function (item) {
+            item.stat = 'solve';
+            return item;
+        };
+        vm.flopDuo = function (turn) {
+            itemCard = vm.flopItemCard(turn[0]);
+            itemCard = vm.flopItemCard(turn[1]);
+            turn.length = 0;
+        }
+        vm.solveDuo = function (turn) {
+            itemCard = vm.SolveItemCard(turn[0]);
+            itemCard = vm.SolveItemCard(turn[1]);
+            turn.length = 0;
+        }
         vm.evaluateTurn = function (turn) {
-            if ((crdturn[0].id === crdturn[1].id)) {
-                //for(var i=0;)
-                //vm.solveDuo(crdturn);
-                itemCard.stat = 'solve';
-                console.log('par encontrado, ocultamos la pareja,reseteamos crdturn y sumamos uno a ok');
-                crdturn.length = 0;
+            if ((turn[0].id === turn[1].id)) {
+                $timeout(function () {
+                    vm.solveDuo(turn);
+                }, 2000);
             } else {
-                 itemCard=vm.flopItemCard(crdturn[0]);
-                 itemCard=vm.flopItemCard(crdturn[1]);
-                //vm.flopItemCard(crdTurn[1]);
-
-                console.log('par no encontrado, volteamos las cartas, sumamos una a ko y vaciamos crdturn');
-                crdturn.length = 0;
+                $timeout(function () {
+                    vm.flopDuo(turn);
+                }, 2000);
             }
         };
-
         vm.actionPlay = function (itemCard) {
             itemCard.picture = 'v' + itemCard.id + '.jpg';
             if (crdturn.length < 2) {
