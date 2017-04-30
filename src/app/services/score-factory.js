@@ -6,10 +6,13 @@
         var ko = 0;
         var ok = 0;
         var score = [ok,ko];
+       //var clickEnabled = true;
         module.getScore = function () {
-                 console.log( 'scoreFactory',score);
             return score;
         };
+        /*module.getClickEnabled=function(){
+            return clickEnabled;
+        };*/
         return module;
     };
 })(angular);

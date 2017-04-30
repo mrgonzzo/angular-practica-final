@@ -4,15 +4,15 @@
     // otra opción es poner aquí directamente el html asignándoselo a template:
     templateUrl:  'app/components/main-view/mainview.html',
     // en controller definimos la función que escribimos abajo
-   controller: ['$state',controladorCompMainView],
+   controller: ['$state',controllerCompMainView],
     // declaramos un alias para no tener que usar $ctrl.
    controllerAs: 'compMainview'
 });
 
-function controladorCompMainView ($state){
+function controllerCompMainView ($state){
   var vm = this;
-  vm.goToPlay=function(){
-    $state.go('play');
+  vm.goToReg=function(){
+    $state.go('register');
   }
 }
 

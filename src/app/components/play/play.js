@@ -4,15 +4,14 @@
     // otra opción es poner aquí directamente el html asignándoselo a template:
     templateUrl: 'app/components/play/play.html',
     // en controller definimos la función que escribimos abajo
-    controller: ['$state', '$timeout', 'scoreFactory', controladorCompPlay],
+    controller: ['$state', '$timeout', 'scoreFactory', controllerCompPlay],
     // declaramos un alias para no tener que usar $ctrl.
     controllerAs: 'compPlay'
   });
 
-  function controladorCompPlay($state, $timeout, scoreFactory) {
+  function controllerCompPlay($state, $timeout, scoreFactory) {
     var vm = this;
     vm.score = scoreFactory.getScore();
-     console.log( 'compPlay',vm.score)
     vm.goToPlay = function () {
       $state.go('play', {}, { reload: true });
     }

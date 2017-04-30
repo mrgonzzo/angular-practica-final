@@ -4,12 +4,12 @@
     // otra opción es poner aquí directamente el html asignándoselo a template:
     templateUrl:  'app/components/commons/footer/footer.html',
     // en controller definimos la función que escribimos abajo
-   controller: ['$state',controladorCompFooter],
+   controller: ['$state',controllerCompFooter],
     // declaramos un alias para no tener que usar $ctrl.
    controllerAs: 'compFooter'
 });
 
-function controladorCompFooter ($state){
+function controllerCompFooter ($state){
   var vm = this;
   vm.goToAboutUs=function(){
     $state.go('aboutus');
