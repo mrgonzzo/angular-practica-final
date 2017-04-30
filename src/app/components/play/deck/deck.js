@@ -27,7 +27,7 @@
             vm.deck = angular.copy(cardFactory.getDeck());
             $timeout(function () {
                 vm.deck = vm.flop(vm.deck);
-            }, 1000);
+            }, 10000);
         };
     }
 })(angular)

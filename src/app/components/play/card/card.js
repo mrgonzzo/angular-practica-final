@@ -11,27 +11,43 @@
             itemCard: '<'
         }
     });
+
     function controladorCompCard($state, cardFactory) {
         var vm = this;
-        //var crdturn=angular.copy()
-
-        vm.crdturn = cardFactory.getTurn();
-        //console.log('vm.crdturn',vm.crdturn);
-        vm.actionPlay = function (itemCard) {
-            //vm.crdturn.push(itemCard);
-            itemCard.picture = 'v' + itemCard.id + '.jpg';
-         //   console.log('vm.crdturn', vm.crdturn);
-            //
-            var l = vm.crdturn.length;
-            ///console.log('l', l);
-            if (vm.crdturn) {
-                // crdturn.push(itemCard);
-                 console.log('turn',vm.crdturn,'L',l);
-                console.log('SI l')
+        var crdturn = cardFactory.getTurn();
+        vm.flopItemCard = function (item) {
+            item.picture = 'back.jpg';
+            item.stat = 'backed';
+            return item;
+        };
+        vm.evaluateTurn = function (turn) {
+            if ((crdturn[0].id === crdturn[1].id)) {
+                //for(var i=0;)
+                //vm.solveDuo(crdturn);
+                itemCard.stat = 'solve';
+                console.log('par encontrado, ocultamos la pareja,reseteamos crdturn y sumamos uno a ok');
+                crdturn.length = 0;
             } else {
-                // if ((cdrturn[0].id === cdrturn[1].id) && (cdrturn[0].part === cdrturn[1].part)) {
-                console.log('NO l');
+                 itemCard=vm.flopItemCard(crdturn[0]);
+                 itemCard=vm.flopItemCard(crdturn[1]);
+                //vm.flopItemCard(crdTurn[1]);
+
+                console.log('par no encontrado, volteamos las cartas, sumamos una a ko y vaciamos crdturn');
+                crdturn.length = 0;
             }
         };
+
+        vm.actionPlay = function (itemCard) {
+            itemCard.picture = 'v' + itemCard.id + '.jpg';
+            if (crdturn.length < 2) {
+                crdturn.push(itemCard);
+                if (crdturn.length === 2) {
+                    vm.evaluateTurn(crdturn);
+                }
+            }
+        };
+
     }
 })(angular);
+
+
