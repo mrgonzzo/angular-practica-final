@@ -10,11 +10,11 @@
     });
     function controllerCompUsfile($state,userFactory) {
         var vm = this;
-
-           vm.allusers = userFactory.getuser();
+          
+           vm.allusers = userFactory.getUsers();
         //esto tiene que estar en la factoria
         vm.addForm = function () {
-            var user = {};
+            user={};
             vm.clase = 'formvirgin';
             if (!vm.name || !vm.email) {
                 vm.clase = 'formko';
@@ -23,21 +23,24 @@
             vm.clase = 'formok'
                 user.name = vm.name;
                 user.email = vm.email;
-                switch (vm.picture) {
+                pic='';
+                switch (vm.avatar) {
                     case '1':
-                        pic = 'australiano';
+                        avatar = 'Bat.jpg';
                         break;
                     case '2':
-                        pic = 'acuatico';
+                        avatar = 'goku.jpg';
                         break;
                     case '3':
-                        pic = 'europeo';
+                        avatar = 'Terminator.jpg';
                         break;
                 }
-                user.picture = pic;
+                user.avatar = avatar;
                 user.id = vm.allusers.length;
                 vm.allusers.push(user);
+                $state.go('play')
             };
+            console.log('vm.allusers',vm.allusers);
         };
 
 

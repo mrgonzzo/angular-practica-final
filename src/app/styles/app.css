@@ -84,3 +84,17 @@
     margin-left: 50px;
     text-align: center;
 }
+.formko{
+    border-color: red;
+}
+.formok{
+    border-color: green;
+}
+.formvirgin{
+border-color: blue;
+}
+.user{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
