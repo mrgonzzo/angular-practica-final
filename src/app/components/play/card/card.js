@@ -14,11 +14,10 @@
     function controllerCompCard($timeout, $state, scoreFactory, cardFactory) {
         var vm = this;
         var crdturn = cardFactory.getTurn();
+        console.log('compCard',crdturn.length);
         vm.flopItemCard = function (item) {
             item.picture = 'back.jpg';
             item.stat = 'backed';
-           // vm.clickEnabled=scoreFactory.getClickEnabled()
-           // vm.clickEnabled = true;
             return item;
         };
         vm.solveItemCard = function (item) {
@@ -30,11 +29,6 @@
             itemCard = vm.flopItemCard(turn[1]);
             var scoreCard = scoreFactory.getScore();
             scoreCard[1] = scoreCard[1] + 1;
-          //  vm.clickEnabled=scoreFactory.getClickEnabled()
-          //  vm.clickEnabled = true;
-            
-        //    console.log('vm.clickEnabled flop', vm.clickEnabled);
-        //    console.log('scoreFactory.getClickEnabled() flop', scoreFactory.getClickEnabled());
             turn.length = 0;
         }
         vm.solveDuo = function (turn) {
@@ -43,33 +37,29 @@
             var scoreCard = scoreFactory.getScore();
             scoreCard[0] = scoreCard[0] + 1;
             turn.length = 0;
-          //  vm.clickEnabled=scoreFactory.getClickEnabled()
-          //  vm.clickEnabled = true;
-            
-         //   console.log('vm.clickEnabled solve', vm.clickEnabled);
-         //   console.log('scoreFactory.getClickEnabled() solve', scoreFactory.getClickEnabled());
         }
         vm.evaluateTurn = function (turn) {
-            //console.log('clickEnabled evaluateTurn', vm.clickEnabled);
             if ((turn[0].id === turn[1].id)) {
+                 console.log('evaTur1 ok',turn.length);          
                 $timeout(function () {
                     vm.solveDuo(turn);
+                    console.log('evaTur2 ok',turn.length);
                 }, 2000);
             } else {
+                 console.log('evaTur1 ko',turn.length);
                 $timeout(function () {
                     vm.flopDuo(turn);
+                    console.log('evaTur2 ko',turn.length);
                 }, 2000);
             }
-
-         //   console.log('clickEnabled evaluateTurn 2', vm.clickEnabled);
         };
         vm.actionPlay = function (itemCard) {
-            console.log('clickEnabled actionPlay', vm.clickEnabled);
-            itemCard.picture = 'v' + itemCard.id + '.jpg';
+            console.log('actionPlay',crdturn.length);
             if (crdturn.length < 2) {
+                itemCard.picture = 'v' + itemCard.id + '.jpg';
                 crdturn.push(itemCard);
                 if (crdturn.length === 2) {
-           //         vm.clickEnabled = false;
+                    vm.enable = false;
                     vm.evaluateTurn(crdturn);
                 }
             }

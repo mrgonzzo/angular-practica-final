@@ -10,11 +10,10 @@
     });
     function controllerCompDeck($state, $timeout, scoreFactory, cardFactory) {
         var vm = this;
-        //vm.clickEnabled = scoreFactory.getClickEnabled()
+        var dckturn = cardFactory.getTurn();
 
         vm.flop = function (deck) {
             var i = 0;
-      //      vm.clickEnabled = true;
             for (i; i < deck.length; i++) {
                 deck[i].picture = "back.jpg";
                 deck[i].stat = 'backed';
@@ -25,11 +24,9 @@
         vm.$onInit = function () {
             vm.counter = 0;
             vm.deck = angular.copy(cardFactory.getDeck());
-
             $timeout(function () {
                 vm.deck = vm.flop(vm.deck);
-        //        console.log('compDeck scoreFactory.getClickEnabled()', scoreFactory.getClickEnabled())
-        //        console.log('compDeck ClickEnabled', vm.clickEnabled);
+                dckturn.length = 0;
             }, 10000);
         };
     }

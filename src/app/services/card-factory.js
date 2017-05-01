@@ -15,7 +15,7 @@
             { id: 9, part: 'a', picture: "v9.jpg", stat: 'faced' },
             { id: 10, part: 'a', picture: "v10.jpg", stat: 'faced' },
         ];
-        var turn = [];
+        var turn = ['a','b'];
         // -> Fisher–Yates shuffle algorithm
         var shuffleArray = function (deckarray) {
             var m = deckarray.length, t, i;
