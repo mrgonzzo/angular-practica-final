@@ -1,4 +1,4 @@
-<div class="form clearfix">
+<div class="tacentre clearfix">
     <!--      <p> Name: <input type="text" ng-model="compUsfile.name" ng-class="compUsfile.clase ? 'class-if-true' : 'class-if-false'"></p> -->
     <h1>registro</h1>
 <div ng-model="compUsfile.userform">
@@ -9,7 +9,7 @@
 
     <label for="avatar">Avatar</label>
     <div class="radavatar clearfix " ng-class="compUsfile.js_class_avatar">
-        <div class="avatarcss">
+        <div class="avatarcss ">
             <input name="avatar" type="radio" ng-model="compUsfile.userform.avatar" value="Bat.jpg" /> THE BAT-MAN
             <p>
                 <img src="app/resources/Bat.jpg">
@@ -21,12 +21,12 @@
                 <img src="app/resources/goku.jpg">
             </p>
         </div>
-        <div class="avatarcss mar-l-avat">
+        <div class="avatarcss mar-l-avat terminator">
             <input name="avatar" type="radio" ng-model="compUsfile.userform.avatar" value="Terminator.jpg" /> T-1000
             <p>
                 <img src="app/resources/Terminator.jpg">
             </p>
         </div>
     </div>
-    <input type="submit" ng-click="compUsfile.addForm()" value="Añadir">
+    <input type="submit" ng-click="compUsfile.addForm()" value="Añadir y a jugar...">
 </div>

@@ -1,6 +1,3 @@
-<div class="clearfix">
-   <lu>
-        <comp-card class="card" ng-class="item.stat" ng-repeat="item in compDeck.deck track by $index" item-card="item">
-        </comp-card>
-    </lu>
+<div class="deck clearfix">
+   <comp-card class="card" ng-class="item.stat" ng-repeat="item in compDeck.deck track by $index" item-card="item"></comp-card>
 </div>

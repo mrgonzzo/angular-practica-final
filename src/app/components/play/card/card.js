@@ -14,7 +14,6 @@
     function controllerCompCard($timeout, $state, scoreFactory, cardFactory) {
         var vm = this;
         var crdturn = cardFactory.getTurn();
-        console.log('compCard',crdturn.length);
         vm.flopItemCard = function (item) {
             item.picture = 'back.jpg';
             item.stat = 'backed';
@@ -40,17 +39,13 @@
         }
         vm.evaluateTurn = function (turn) {
             if ((turn[0].id === turn[1].id)) {
-                 console.log('evaTur1 ok',turn.length);          
                 $timeout(function () {
                     vm.solveDuo(turn);
-                    console.log('evaTur2 ok',turn.length);
-                }, 2000);
+                }, 500);
             } else {
-                 console.log('evaTur1 ko',turn.length);
                 $timeout(function () {
                     vm.flopDuo(turn);
-                    console.log('evaTur2 ko',turn.length);
-                }, 2000);
+                }, 1500);
             }
         };
         vm.actionPlay = function (itemCard) {

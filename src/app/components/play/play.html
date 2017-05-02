@@ -1,6 +1,5 @@
-
-<div class="clearfix user"><img src="app/resources/{{compPlay.user.avatar}}"/><div><p>{{compPlay.user.name}}</p></div></div>
-<div class="counter clearfix"><div class="count ok"><span>OK: {{compPlay.score[0]}}</span></div><div class="count ko"><span>KO: {{compPlay.score[1]}}</span></div></div>
-
+<div class="play tacentre clearfix">
+<comp-counter></comp-counter>
 <comp-deck></comp-deck>
 <button ng-click="compPlay.goToPlay()">Play Again</button>
+</div>

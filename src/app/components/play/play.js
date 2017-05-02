@@ -11,11 +11,11 @@
 
   function controllerCompPlay($state, $timeout, userFactory, scoreFactory) {
     var vm = this;
-    vm.score = scoreFactory.getScore();
+    
     vm.goToPlay = function () {
       $state.go('play', {}, { reload: true });
     }
-    vm.user = userFactory.getUser();
+    
   };
 
 })(angular)

@@ -1,46 +1,26 @@
 .clearfix {
     overflow: auto;
 }
-.header{
+.tacentre{
     text-align: center;
-    color: blue;
-    border: 1px;
-    border-color: red;
-    border-style: solid;
-    width: 100%;
 }
-.footer{
-    text-align: center;
+.wid100{
+  width: 100%;
+}
+.bluetext{
     color: blue;
-    border: 1px;
-    border-color: red;
-    border-style: solid;
-    width: 100%;
 }
 .main{
-    width: 100%;
-    border: 1px;
-    border-style: solid;
-    border-color: blue;
-    text-align: center;
     font-size: 36px;
     font-weight: bold; 
 }
 .aboutus{
-    width: 100%;
-    border: 1px;
-    border-style: solid;
-    border-color: blue;
-    text-align: center;
     font-size: 18px;; 
 }
-.card{
-    width: 220px;
-    height: 320px;
-    float: left;
-    text-align: center;
-    margin-left: 10px;
-    margin-bottom: 7px;
+.deck{
+    width: 726px;
+    height: 764px;
+    margin: auto;
 }
 .face .backed{
     visibility: visible;
@@ -48,18 +28,26 @@
 .solve{
     visibility: hidden;
 }
+.card{
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+.display{
+ margin-left: 45%;
+}
+.user{
+    font-weight: bold;
+    font-size: 20px;
+    float:left;
+}
 .counter{
     margin: 3px 3px 3px 3px;
-    border: 2px;
-    border-style: ridge;
-    text-align: center;
 }
 .count{
-    margin-left:45%;
-    height: 25px;
-    width: 50px;
-    text-align: center;
-    padding-top:5px;
+    height: 40px;
+    width: 100px;
+    padding-top:25px;
 }
 .ok{
     background-color: green;
@@ -67,27 +55,23 @@
 .ko{
     background-color: red;
    }
-.form{
-    text-align: center;
-}
-
 .avatarcss{
     float:left;
-    text-align: center;
     margin-left: 50px;
-    text-align: center;
     margin-top:10px;
     margin-bottom: 10px;
 }
-
+.terminator{
+    margin-right: 50px;
+}
 .radavatar{
-    margin-left: 30%; 
-    width: 35%;
+    margin-left: 30%;  
+    width: 40%;
     margin-bottom: 10px;
     margin-top: 10px;
     border-width: 2px;
     border-style: inset;
-    border-color:blue;
+    border-color:gray;
     margin-right: 30%;
 }    
 .js_class_ko{
@@ -100,9 +84,4 @@
 }
 .form{
     border-color: blue;
-}
-.user{
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
 }
