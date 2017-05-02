@@ -10,6 +10,13 @@
 .bluetext{
     color: blue;
 }
+.nop{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.registre{
+    font-size: 20px;
+}
 .main{
     font-size: 36px;
     font-weight: bold; 
@@ -34,7 +41,7 @@
     margin-bottom: 7px;
 }
 .display{
- margin-left: 45%;
+ margin-left: 40%;
 }
 .user{
     font-weight: bold;
@@ -43,6 +50,7 @@
 }
 .counter{
     margin: 3px 3px 3px 3px;
+    height: 160px;
 }
 .count{
     height: 40px;
@@ -55,6 +63,7 @@
 .ko{
     background-color: red;
    }
+
 .avatarcss{
     float:left;
     margin-left: 50px;
@@ -76,12 +85,13 @@
 }    
 .js_class_ko{
     border-color: red;
-    color: red;    
 }
 .js_class_ok{
     border-color: green;
-    color:green;
 }
-.form{
-    border-color: blue;
+.js_text_ok{
+    color: green;
+}
+.js_text_ko{
+    color: red;
 }

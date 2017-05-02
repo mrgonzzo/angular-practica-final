@@ -12,29 +12,25 @@
       url: '/main',
       template: '<comp-mainview></comp-mainview>'
     };
-    
     var about = {
       name: 'aboutus',
       url: '/aboutus',
       template: '<comp-aboutus></comp-aboutus>'
     };
-    var register ={
-      name:'register',
-      url:'/register',
-      template:'<comp-usfile></comp-usfile>'
+    var register = {
+      name: 'register',
+      url: '/register',
+      template: '<comp-usfile></comp-usfile>'
     };
     var play = {
       name: 'play',
       url: '/play',
       template: '<comp-play></comp-play>'
     };
-    
     $stateProvider.state(main);
     $stateProvider.state(about);
     $stateProvider.state(register);
     $stateProvider.state(play);
     $urlRouterProvider.otherwise('/main');
   }
-
-
 })(angular);

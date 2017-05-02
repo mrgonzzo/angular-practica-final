@@ -4,41 +4,49 @@
         // otra opción es poner aquí directamente el html asignándoselo a template:
         templateUrl: 'app/components/userfile/userfile.html',
         // en controller definimos la función que escribimos abajo
-        controller: ['$state', 'userFactory', controllerCompUsfile],
+        controller: ['$timeout', '$state', 'userFactory', controllerCompUsfile],
         // declaramos un alias para no tener que usar $ctrl.
         controllerAs: 'compUsfile'
     });
-    function controllerCompUsfile($state, userFactory) {
+    function controllerCompUsfile($timeout, $state, userFactory) {
         var vm = this;
+         goPlay = function () {
+            $state.go('play');
+        };
         vm.userform = {};
         user = userFactory.getUser();
-        console.log('user', user, 'vm.userform', vm.userform, 'vm.userform.name', vm.userform.name)
         vm.addForm = function () {
-            vm.js_class_form = 'formvirgin';
+            vm.message = 'forvmirgin';
             if (!vm.userform.name) {
                 vm.js_class_name = 'js_class_ko';
-                vm.js_class_form ='js_class_ko';
+                vm.message = 'Pon tu nombre';
+                vm.js_class_message='js_text_ko';
             } else {
                 vm.js_class_name = 'js_class_ok';
                 user.name = vm.userform.name;
+                vm.message = '';
                 if (!vm.userform.email) {
                     vm.js_class_email = 'js_class_ko';
-                    vm.js_class_form ='js_class_ko';
+                    vm.message = 'Escribe un email correcto';
+                    vm.js_class_message='js_text_ko';
                 } else {
                     vm.js_class_email = 'js_class_ok';
                     user.email = vm.userform.email;
-                    console.log('vm.userform.avatar',vm.userform.avatar)
+                    vm.message = '';
                     if (!vm.userform.avatar) {
-                        vm.js_class_avatar = 'js_class_ko';
-                        vm.js_class_form ='js_class_ko';
+                        vm.js_class_avatar = 'js_class_ko js_text_ko';
+                        vm.message = 'Elige un avatar';
+                        vm.js_class_message='js_text_ko';
                     } else {
-                        vm.js_class_avatar = 'js_class_ok';
-                        vm.js_class_form ='js_class_ok';
+                        vm.js_class_avatar = 'js_text_ok js_text_ok';
                         user.avatar = vm.userform.avatar;
-                        $state.go('play');
+                        vm.message = 'Genial, disfruta';
+                        vm.js_class_message='js_text_ok';
+                        $timeout(goPlay, 2000);
                     }
                 }
             }
+            
         };
-}
+    }
 })(angular)
