@@ -70,28 +70,36 @@
 .form{
     text-align: center;
 }
+
 .avatarcss{
     float:left;
     text-align: center;
-    border: 1px;
-    border-style:solid;
-}
-.radavatar{
-    margin-left: 28%; 
-    margin-bottom: 10px;
-}
-.mar-l-avat{
     margin-left: 50px;
     text-align: center;
+    margin-top:10px;
+    margin-bottom: 10px;
 }
-.formko{
+
+.radavatar{
+    margin-left: 30%; 
+    width: 35%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-width: 2px;
+    border-style: inset;
+    border-color:blue;
+    margin-right: 30%;
+}    
+.js_class_ko{
     border-color: red;
+    color: red;    
 }
-.formok{
+.js_class_ok{
     border-color: green;
+    color:green;
 }
-.formvirgin{
-border-color: blue;
+.form{
+    border-color: blue;
 }
 .user{
     text-align: center;

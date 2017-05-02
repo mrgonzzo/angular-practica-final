@@ -1,27 +1,28 @@
 <div class="form clearfix">
     <!--      <p> Name: <input type="text" ng-model="compUsfile.name" ng-class="compUsfile.clase ? 'class-if-true' : 'class-if-false'"></p> -->
     <h1>registro</h1>
-
-    <p> Name: <input type="text"  autofocus required ng-model="compUsfile.name" ng-class="compUsfile.clase"></p>{{compUsfile.name}}
-    <p><label for="email"> E-Mail: </label><input type="email" required ng-model="compUsfile.email" ng-class="compUsfile.clase"></p>{{compUsfile.email}}
+<div ng-model="compUsfile.userform">
+    <p><label for="name"> Name: </label><input type="text" autofocus required ng-model="compUsfile.userform.name" ng-class="compUsfile.js_class_name"></p>
+    <p>{{compUsfile.userform.name}}</p>
+    <p><label for="email"> E-Mail: </label><input type="email" required ng-model="compUsfile.userform.email" ng-class="compUsfile.js_class_email"></p>
+    <p>{{compUsfile.userform.email}}</p>
 
     <label for="avatar">Avatar</label>
-    <div class="radavatar clearfix">
-
+    <div class="radavatar clearfix " ng-class="compUsfile.js_class_avatar">
         <div class="avatarcss">
-            <input name="avatar" type="radio" ng-model="compUsfile.avatar" value="1" /> THE BAT-MAN
+            <input name="avatar" type="radio" ng-model="compUsfile.userform.avatar" value="Bat.jpg" /> THE BAT-MAN
             <p>
                 <img src="app/resources/Bat.jpg">
             </p>
         </div>
         <div class="avatarcss mar-l-avat">
-            <input name="avatar" type="radio" ng-model="compUsfile.avatar" value="2" /> SON GOKU
+            <input name="avatar" type="radio" ng-model="compUsfile.userform.avatar" value="goku.jpg" /> SON GOKU
             <p>
                 <img src="app/resources/goku.jpg">
             </p>
         </div>
         <div class="avatarcss mar-l-avat">
-            <input name="avatar" type="radio" ng-model="compUsfile.avatar" value="3" /> T-1000
+            <input name="avatar" type="radio" ng-model="compUsfile.userform.avatar" value="Terminator.jpg" /> T-1000
             <p>
                 <img src="app/resources/Terminator.jpg">
             </p>

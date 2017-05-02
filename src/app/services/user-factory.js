@@ -3,14 +3,10 @@
     function userFactory() {
         var module = {};
         var self = module;
-        var users=[];
-       //var clickEnabled = true;
-        module.getUsers = function () {
-            return users;
+        var user={name:'',email:'',avatar:''};
+        module.getUser = function () {
+            return user;
         };
-        /*module.getClickEnabled=function(){
-            return clickEnabled;
-        };*/
         return module;
     };
 })(angular);

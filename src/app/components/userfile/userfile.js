@@ -4,47 +4,41 @@
         // otra opción es poner aquí directamente el html asignándoselo a template:
         templateUrl: 'app/components/userfile/userfile.html',
         // en controller definimos la función que escribimos abajo
-        controller: ['$state','userFactory', controllerCompUsfile],
+        controller: ['$state', 'userFactory', controllerCompUsfile],
         // declaramos un alias para no tener que usar $ctrl.
         controllerAs: 'compUsfile'
     });
-    function controllerCompUsfile($state,userFactory) {
+    function controllerCompUsfile($state, userFactory) {
         var vm = this;
-          
-           vm.allusers = userFactory.getUsers();
-        //esto tiene que estar en la factoria
+        vm.userform = {};
+        user = userFactory.getUser();
+        console.log('user', user, 'vm.userform', vm.userform, 'vm.userform.name', vm.userform.name)
         vm.addForm = function () {
-            user={};
-            vm.clase = 'formvirgin';
-            if (!vm.name || !vm.email) {
-                vm.clase = 'formko';
-            }
-            else {
-            vm.clase = 'formok'
-                user.name = vm.name;
-                user.email = vm.email;
-                pic='';
-                switch (vm.avatar) {
-                    case '1':
-                        avatar = 'Bat.jpg';
-                        break;
-                    case '2':
-                        avatar = 'goku.jpg';
-                        break;
-                    case '3':
-                        avatar = 'Terminator.jpg';
-                        break;
+            vm.js_class_form = 'formvirgin';
+            if (!vm.userform.name) {
+                vm.js_class_name = 'js_class_ko';
+                vm.js_class_form ='js_class_ko';
+            } else {
+                vm.js_class_name = 'js_class_ok';
+                user.name = vm.userform.name;
+                if (!vm.userform.email) {
+                    vm.js_class_email = 'js_class_ko';
+                    vm.js_class_form ='js_class_ko';
+                } else {
+                    vm.js_class_email = 'js_class_ok';
+                    user.email = vm.userform.email;
+                    console.log('vm.userform.avatar',vm.userform.avatar)
+                    if (!vm.userform.avatar) {
+                        vm.js_class_avatar = 'js_class_ko';
+                        vm.js_class_form ='js_class_ko';
+                    } else {
+                        vm.js_class_avatar = 'js_class_ok';
+                        vm.js_class_form ='js_class_ok';
+                        user.avatar = vm.userform.avatar;
+                        $state.go('play');
+                    }
                 }
-                user.avatar = avatar;
-                user.id = vm.allusers.length;
-                vm.allusers.push(user);
-                $state.go('play')
-            };
-            console.log('vm.allusers',vm.allusers);
+            }
         };
-
-
-
-        
-    }
+}
 })(angular)
