@@ -15,13 +15,20 @@
         var vm = this;
         var crdturn = cardFactory.getTurn();
         var scoreCard = scoreFactory.getScore();
+        vm.remAnimation = function (turn) {
+            var i = 0;
+            for (i; i < turn.length; i++) {
+                turn[i].stat = 'backed';
+            }
+            return turn;
+        };
         vm.flopItemCard = function (item) {
             item.picture = 'back.jpg';
-            item.stat = 'backed';
+            item.stat = 'backed animated flip';
             return item;
         };
         vm.solveItemCard = function (item) {
-            item.stat = 'solve';
+            item.stat = 'solve fadeIn flip';
             return item;
         };
         vm.flopDuo = function (turn) {
@@ -37,9 +44,11 @@
             turn.length = 0;
         }
         vm.evaluateTurn = function (turn) {
+            
             if ((turn[0].id === turn[1].id)) {
-                $timeout(function () {
+                 $timeout(function () {
                     vm.solveDuo(turn);
+                    console.log('solve duo',turn);
                     if (scoreCard[0] === 10) {
                         $state.go('win');
                     }
@@ -48,16 +57,25 @@
             } else {
                 $timeout(function () {
                     vm.flopDuo(turn);
+                    console.log('flopDuo',turn);
                 }, 1500);
+                $timeout(function(){
+                    vm.remAnimation(turn);
+                    console.log('remAnimation',turn);
+                },1490);
             }
         };
         vm.actionPlay = function (itemCard) {
             if (crdturn.length < 2) {
                 itemCard.picture = 'v' + itemCard.id + '.jpg';
+                itemCard.stat = 'faced animated flip';
+                console.log('stat: ',itemCard.stat,'id: ',itemCard.id,'part:',itemCard.part);
                 crdturn.push(itemCard);
                 if (crdturn.length === 2) {
-                    vm.enable = false;
                     vm.evaluateTurn(crdturn);
+                    $timeout(function(){
+                    vm.remAnimation(crdturn);
+                },1510)
                 }
             }
         };

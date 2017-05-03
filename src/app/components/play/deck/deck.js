@@ -16,6 +16,13 @@
             var i = 0;
             for (i; i < deck.length; i++) {
                 deck[i].picture = "back.jpg";
+                deck[i].stat = 'backed animated flip';
+            }
+            return deck;
+        };
+        vm.remAnimation = function (deck) {
+            var i = 0;
+            for (i; i < deck.length; i++) {
                 deck[i].stat = 'backed';
             }
             return deck;
@@ -23,11 +30,14 @@
 
         vm.$onInit = function () {
             vm.counter = 0;
-            vm.deck = angular.copy(cardFactory.getDeck());
+            vm.deck = angular.copy(cardFactory.getDeck());               
             $timeout(function () {
                 vm.deck = vm.flop(vm.deck);
-                dckturn.length = 0;
-            }, 10000);
+                dckturn.length = 0;                
+            }, 3000);
+            $timeout(function () {
+                vm.deck = vm.remAnimation(vm.deck);
+            }, 3500);
         };
     }
 })(angular)
