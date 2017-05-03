@@ -14,6 +14,7 @@
     function controllerCompCard($timeout, $state, scoreFactory, cardFactory) {
         var vm = this;
         var crdturn = cardFactory.getTurn();
+        var scoreCard = scoreFactory.getScore();
         vm.flopItemCard = function (item) {
             item.picture = 'back.jpg';
             item.stat = 'backed';
@@ -26,14 +27,12 @@
         vm.flopDuo = function (turn) {
             itemCard = vm.flopItemCard(turn[0]);
             itemCard = vm.flopItemCard(turn[1]);
-            var scoreCard = scoreFactory.getScore();
             scoreCard[1] = scoreCard[1] + 1;
             turn.length = 0;
         }
         vm.solveDuo = function (turn) {
             itemCard = vm.solveItemCard(turn[0]);
             itemCard = vm.solveItemCard(turn[1]);
-            var scoreCard = scoreFactory.getScore();
             scoreCard[0] = scoreCard[0] + 1;
             turn.length = 0;
         }
@@ -41,7 +40,11 @@
             if ((turn[0].id === turn[1].id)) {
                 $timeout(function () {
                     vm.solveDuo(turn);
+                    if (scoreCard[0] === 10) {
+                        $state.go('win');
+                    }
                 }, 500);
+
             } else {
                 $timeout(function () {
                     vm.flopDuo(turn);
@@ -49,7 +52,6 @@
             }
         };
         vm.actionPlay = function (itemCard) {
-            console.log('actionPlay',crdturn.length);
             if (crdturn.length < 2) {
                 itemCard.picture = 'v' + itemCard.id + '.jpg';
                 crdturn.push(itemCard);
@@ -59,7 +61,6 @@
                 }
             }
         };
-
     }
 })(angular);
 

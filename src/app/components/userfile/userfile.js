@@ -16,7 +16,6 @@
         vm.userform = {};
         user = userFactory.getUser();
         vm.addForm = function () {
-            vm.message = 'forvmirgin';
             if (!vm.userform.name) {
                 vm.js_class_name = 'js_class_ko';
                 vm.message = 'Pon tu nombre';
@@ -27,7 +26,7 @@
                 vm.message = '';
                 if (!vm.userform.email) {
                     vm.js_class_email = 'js_class_ko';
-                    vm.message = 'Escribe un email correcto';
+                    vm.message = 'Por favor, '+vm.userform.name+', escribe tu email habitual';
                     vm.js_class_message='js_text_ko';
                 } else {
                     vm.js_class_email = 'js_class_ok';
@@ -35,7 +34,7 @@
                     vm.message = '';
                     if (!vm.userform.avatar) {
                         vm.js_class_avatar = 'js_class_ko js_text_ko';
-                        vm.message = 'Elige un avatar';
+                        vm.message = 'Por favor, '+vm.userform.name+', elige un avatar';
                         vm.js_class_message='js_text_ko';
                     } else {
                         vm.js_class_avatar = 'js_text_ok js_text_ok';

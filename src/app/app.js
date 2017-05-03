@@ -26,10 +26,16 @@
       url: '/play',
       template: '<comp-play></comp-play>'
     };
+    var win = {
+      name: 'win',
+      url: '/win',
+      template: '<comp-win></comp-win>'
+    };
     $stateProvider.state(main);
     $stateProvider.state(about);
     $stateProvider.state(register);
     $stateProvider.state(play);
+    $stateProvider.state(win);
     $urlRouterProvider.otherwise('/main');
   }
 })(angular);
